@@ -43,8 +43,9 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_security_group" "web-sg" {
-  name = "${random_pet.sg.id}-sg"
-  subnet_id = "subnet-022ae162d2c9c7eea"
+  name        = "allow_tls"
+  description = "Allow TLS inbound traffic"
+  vpc_id      = "vpc-031f01a68158f18e8"
   ingress {
     from_port   = 8080
     to_port     = 8080
